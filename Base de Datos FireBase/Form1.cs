@@ -20,6 +20,13 @@ namespace Base_de_Datos_FireBase
             InitializeComponent();
         }
 
+        IFirebaseConfig fcon = new FirebaseConfig()
+        {
+            AuthSecret = "pQmNc1JwlCUFaAEmOURAH9SyDHBfC7wwNykRXLL8",
+            BasePath = "https://fir-dbcsharp-default-rtdb.firebaseio.com/"
+        };
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
