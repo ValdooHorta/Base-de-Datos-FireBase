@@ -52,8 +52,37 @@ namespace Base_de_Datos_FireBase
                 Semestre = txtSemestre.Text,
                 Grupo = txtGrupo.Text
             };
-            var setter = client.Set("ListaEstudiantes/"+txtCuenta.Text, std);
+            var setter = client.Set("ListaEstudiantes/"+txtCuenta.Text,std);
             MessageBox.Show("Datos insertados correctamente");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var resultado = client.Get("ListaEstudiantes/" + txtCuenta.Text);
+            Estudiante std = resultado.ResultAs<Estudiante>();
+            txtNombre.Text = std.Nombre;
+            txtSemestre.Text = std.Semestre;
+            txtGrupo.Text = std.Grupo;
+            MessageBox.Show("Datos encontrados en la base de datos.");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Estudiante std = new Estudiante
+            {
+                Nombre = txtNombre.Text,
+                Cuenta = txtCuenta.Text,
+                Semestre = txtSemestre.Text,
+                Grupo = txtGrupo.Text
+            };
+            var setter = client.Update("ListaEstudiantes/" + txtCuenta.Text, std);
+            MessageBox.Show("Datos actualizados correctamente");
+        } 
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var resultado = client.Delete("ListaEstudiantes/" + txtCuenta.Text);
+            MessageBox.Show("Datos eliminados correctamente");
         }
     }
 }
