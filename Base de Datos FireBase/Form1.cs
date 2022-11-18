@@ -53,6 +53,10 @@ namespace Base_de_Datos_FireBase
                 Grupo = txtGrupo.Text
             };
             var setter = client.Set("ListaEstudiantes/"+txtCuenta.Text,std);
+            txtNombre.Text = "";
+            txtCuenta.Text = "";
+            txtSemestre.Text = "";
+            txtGrupo.Text = "";
             MessageBox.Show("Datos insertados correctamente");
         }
 
@@ -76,12 +80,20 @@ namespace Base_de_Datos_FireBase
                 Grupo = txtGrupo.Text
             };
             var setter = client.Update("ListaEstudiantes/" + txtCuenta.Text, std);
+            txtNombre.Text = "";
+            txtCuenta.Text = "";
+            txtSemestre.Text = "";
+            txtGrupo.Text = "";
             MessageBox.Show("Datos actualizados correctamente");
         } 
 
         private void button4_Click(object sender, EventArgs e)
         {
             var resultado = client.Delete("ListaEstudiantes/" + txtCuenta.Text);
+            txtNombre.Text = "";
+            txtCuenta.Text = "";
+            txtSemestre.Text = "";
+            txtGrupo.Text = "";
             MessageBox.Show("Datos eliminados correctamente");
         }
     }
